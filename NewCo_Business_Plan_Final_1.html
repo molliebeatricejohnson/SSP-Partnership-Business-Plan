@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NewCo — Business Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --ink: #0E1A14;
+  --forest: #1A3528;
+  --sage: #2D5C44;
+  --moss: #4A8C6A;
+  --pale: #EFF5F1;
+  --cream: #F8F5EE;
+  --gold: #C4933F;
+  --gold-light: #E8C97A;
+  --stone: #8A8478;
+  --border: #D4D0C8;
+  --white: #FFFFFF;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.7;}
+
+/* SIDEBAR */
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:220px;background:var(--forest);z-index:100;display:flex;flex-direction:column;overflow:hidden;}
+.sidebar-brand{padding:2rem 1.5rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+.sidebar-brand .wordmark{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--white);font-weight:600;letter-spacing:0.02em;line-height:1;}
+.sidebar-brand .tagline{font-size:10px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.15em;margin-top:5px;}
+.sidebar-nav{flex:1;overflow-y:auto;padding:1rem 0;}
+.sidebar-nav::-webkit-scrollbar{width:3px;}
+.sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px;}
+.nav-item{display:block;padding:8px 1.5rem;font-size:11.5px;color:rgba(255,255,255,0.45);text-decoration:none;font-weight:400;letter-spacing:0.03em;transition:all 0.2s;border-left:2px solid transparent;}
+.nav-item:hover{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.04);}
+.nav-item.active{color:var(--gold-light);border-left-color:var(--gold);background:rgba(196,147,63,0.08);}
+.nav-section-label{padding:1rem 1.5rem 0.3rem;font-size:9px;color:rgba(255,255,255,0.2);text-transform:uppercase;letter-spacing:0.2em;font-family:'Courier Prime',monospace;}
+.sidebar-footer{padding:1rem 1.5rem;border-top:1px solid rgba(255,255,255,0.06);font-size:10px;color:rgba(255,255,255,0.2);font-family:'Courier Prime',monospace;}
+
+/* MAIN */
+.main{margin-left:220px;min-height:100vh;}
+
+/* HERO */
+.hero{background:var(--forest);padding:5rem 4rem 4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(196,147,63,0.12),transparent 70%);}
+.hero::after{content:'';position:absolute;bottom:-60px;left:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(45,92,68,0.4),transparent 70%);}
+.hero-label{font-family:'Courier Prime',monospace;font-size:10px;color:var(--moss);letter-spacing:0.25em;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--white);font-weight:300;line-height:1;margin-bottom:0.5rem;position:relative;z-index:1;}
+.hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-sub{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;letter-spacing:0.05em;margin-bottom:3rem;position:relative;z-index:1;}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1;margin-bottom:2.5rem;}
+.hero-pill{padding:5px 16px;border:1px solid rgba(255,255,255,0.15);border-radius:30px;font-size:11px;color:rgba(255,255,255,0.6);font-weight:300;letter-spacing:0.05em;}
+.hero-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;position:relative;z-index:1;max-width:640px;}
+.hero-metric{padding:1.25rem 1.5rem;background:rgba(0,0,0,0.2);}
+.hero-metric-label{font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.15em;font-family:'Courier Prime',monospace;margin-bottom:4px;}
+.hero-metric-val{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--gold-light);font-weight:400;line-height:1;}
+.hero-metric-sub{font-size:10px;color:rgba(255,255,255,0.25);margin-top:3px;}
+
+/* CONTENT */
+.content{padding:0 4rem 6rem;}
+
+/* SECTION */
+.section{padding-top:4rem;}
+.section-eyebrow{font-family:'Courier Prime',monospace;font-size:9.5px;color:var(--moss);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:6px;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--forest);font-weight:400;margin-bottom:0.5rem;line-height:1.1;padding-bottom:0.75rem;border-bottom:1px solid var(--border);}
+.section-intro{font-size:14.5px;color:#3A4A42;line-height:1.85;max-width:720px;margin-top:1rem;}
+
+/* HEADINGS */
+.h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--forest);font-weight:600;margin:2.5rem 0 0.75rem;padding-bottom:6px;border-bottom:2px solid var(--moss);display:inline-block;}
+.h3{font-size:13px;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:0.08em;margin:1.5rem 0 0.5rem;}
+
+/* CARDS */
+.card-grid{display:grid;gap:1rem;margin:1rem 0;}
+.card-grid.g2{grid-template-columns:1fr 1fr;}
+.card-grid.g3{grid-template-columns:1fr 1fr 1fr;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;}
+.card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--stone);margin-bottom:0.75rem;font-family:'Courier Prime',monospace;}
+
+/* METRIC CARDS */
+.metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;}
+.metric-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;position:relative;overflow:hidden;}
+.metric-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--forest);}
+.metric-card.gold::before{background:var(--gold);}
+.metric-card.sage::before{background:var(--sage);}
+.metric-label{font-size:10px;color:var(--stone);text-transform:uppercase;letter-spacing:0.12em;font-family:'Courier Prime',monospace;margin-bottom:6px;}
+.metric-val{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--forest);font-weight:400;line-height:1;}
+.metric-sub{font-size:11px;color:var(--stone);margin-top:4px;}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin:1rem 0;}
+table.data{width:100%;border-collapse:collapse;font-size:13px;}
+table.data th{background:var(--forest);color:rgba(255,255,255,0.85);padding:10px 14px;text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:0.07em;font-family:'Courier Prime',monospace;}
+table.data td{padding:10px 14px;border-bottom:1px solid var(--border);color:#3A4A42;vertical-align:top;}
+table.data tr:last-child td{border-bottom:none;}
+table.data tr:nth-child(even) td{background:rgba(239,245,241,0.5);}
+table.data td:first-child{font-weight:500;color:var(--forest);}
+
+/* LIST */
+.styled-list{list-style:none;margin:0.5rem 0;}
+.styled-list li{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid rgba(212,208,200,0.5);font-size:13.5px;color:#3A4A42;line-height:1.6;}
+.styled-list li:last-child{border-bottom:none;}
+.styled-list li::before{content:'→';color:var(--moss);font-weight:600;flex-shrink:0;margin-top:1px;font-size:12px;}
+
+/* CALLOUT */
+.callout{background:rgba(26,53,40,0.05);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1rem 0;font-size:14px;color:#2A3A32;font-style:italic;line-height:1.8;}
+.callout.gold{background:rgba(196,147,63,0.07);border-left-color:var(--gold);}
+
+/* PROCESS STEPS */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:1.25rem;position:relative;padding-bottom:1.5rem;}
+.step:last-child{padding-bottom:0;}
+.step::before{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--border);}
+.step:last-child::before{display:none;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--forest);color:white;display:flex;align-items:center;justify-content:center;font-family:'Courier Prime',monospace;font-size:13px;font-weight:700;flex-shrink:0;z-index:1;}
+.step-body{flex:1;padding-top:8px;}
+.step-title{font-weight:600;font-size:14px;color:var(--forest);margin-bottom:3px;}
+.step-desc{font-size:13px;color:#4A5A52;line-height:1.65;}
+.step-time{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;color:var(--stone);background:var(--pale);padding:2px 10px;border-radius:20px;margin-top:5px;}
+
+/* QUARTER CARDS */
+.quarter-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;}
+.quarter-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;}
+.quarter-card.active{background:var(--forest);border-color:var(--forest);}
+.qtr-label{font-family:'Courier Prime',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.15em;color:var(--moss);margin-bottom:4px;}
+.quarter-card.active .qtr-label{color:var(--gold-light);}
+.qtr-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--forest);font-weight:600;margin-bottom:0.75rem;}
+.quarter-card.active .qtr-title{color:var(--white);}
+.qtr-item{font-size:12.5px;color:#4A5A52;padding:4px 0;border-bottom:1px solid rgba(212,208,200,0.4);display:flex;gap:8px;}
+.qtr-item:last-child{border-bottom:none;}
+.qtr-item::before{content:'·';color:var(--moss);flex-shrink:0;}
+.quarter-card.active .qtr-item{color:rgba(255,255,255,0.6);border-bottom-color:rgba(255,255,255,0.06);}
+.quarter-card.active .qtr-item::before{color:var(--gold-light);}
+.qtr-stat{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid rgba(212,208,200,0.4);}
+.quarter-card.active .qtr-stat{border-bottom-color:rgba(255,255,255,0.08);}
+.qtr-stat:last-child{border-bottom:none;}
+.qtr-stat-label{color:var(--stone);}
+.quarter-card.active .qtr-stat-label{color:rgba(255,255,255,0.4);}
+.qtr-stat-val{font-weight:600;color:var(--forest);}
+.quarter-card.active .qtr-stat-val{color:var(--gold-light);}
+
+/* RISK TAGS */
+.risk-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 10px;border-radius:20px;font-family:'Courier Prime',monospace;}
+.risk-high{background:#FDECEA;color:#B83232;}
+.risk-med{background:#FEF3DC;color:#8B5E0A;}
+.risk-low{background:#EFF5F1;color:var(--sage);}
+
+/* PATH CARDS */
+.path-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0;}
+.path-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;}
+.path-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--border);font-weight:300;line-height:1;margin-bottom:0.5rem;}
+.path-title{font-weight:600;font-size:13.5px;color:var(--forest);margin-bottom:0.5rem;}
+.path-desc{font-size:12.5px;color:var(--stone);line-height:1.65;}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid var(--border);margin:3rem 0;}
+
+/* FOOTER */
+.doc-footer{text-align:center;padding:2rem 4rem;border-top:1px solid var(--border);font-size:11px;color:var(--stone);font-family:'Courier Prime',monospace;letter-spacing:0.05em;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .main{margin-left:0;}
+  .hero{padding:3rem 1.5rem;}
+  .hero h1{font-size:3rem;}
+  .content{padding:0 1.5rem 4rem;}
+  .card-grid.g2,.card-grid.g3,.metric-row,.quarter-grid,.path-grid{grid-template-columns:1fr;}
+  .hero-metrics{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="wordmark">NewCo</div>
+    <div class="tagline">Business Plan · 2026–2029</div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Overview</div>
+    <a class="nav-item active" href="#executive-summary">Executive Summary</a>
+    <a class="nav-item" href="#mission">Mission & Positioning</a>
+    <div class="nav-section-label">Market</div>
+    <a class="nav-item" href="#market">Market Opportunity</a>
+    <a class="nav-item" href="#service-model">Service Model & Fees</a>
+    <div class="nav-section-label">Growth</div>
+    <a class="nav-item" href="#revenue">Revenue & Placements</a>
+    <a class="nav-item" href="#clients">Target Clients</a>
+    <a class="nav-item" href="#candidates">Candidate Strategy</a>
+    <div class="nav-section-label">Operations</div>
+    <a class="nav-item" href="#search-process">Search Process</a>
+    <a class="nav-item" href="#hiring">Hiring & Team</a>
+    <a class="nav-item" href="#operations">Operations</a>
+    <a class="nav-item" href="#financial">Financial Plan</a>
+    <div class="nav-section-label">Strategy</div>
+    <a class="nav-item" href="#risk">Risk Analysis</a>
+    <a class="nav-item" href="#partnership">Partnership Terms</a>
+    <a class="nav-item" href="#exit">Exit & Long-Term Vision</a>
+  </nav>
+  <div class="sidebar-footer">Confidential · September Search</div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Confidential · Business Plan · Planning Years 1–3 · October 2026</div>
+  <h1>New<em>Co</em></h1>
+  <div class="hero-sub">Junior Real Estate Search · A Partnership with September Search · New York City</div>
+  <div class="hero-pills">
+    <span class="hero-pill">Asset Management</span>
+    <span class="hero-pill">Acquisitions</span>
+    <span class="hero-pill">Development</span>
+    <span class="hero-pill">Credit</span>
+  </div>
+  <div class="hero-metrics">
+    <div class="hero-metric">
+      <div class="hero-metric-label">Year 1 Target</div>
+      <div class="hero-metric-val">$650K</div>
+      <div class="hero-metric-sub">10–12 placements</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-label">Year 2 Target</div>
+      <div class="hero-metric-val">$1.3M</div>
+      <div class="hero-metric-sub">20–25 placements</div>
+    </div>
+    <div class="hero-metric">
+      <div class="hero-metric-label">Year 3 Target</div>
+      <div class="hero-metric-val">$1.95M</div>
+      <div class="hero-metric-sub">30+ placements</div>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+
+<!-- ── SECTION 1: EXECUTIVE SUMMARY ── -->
+<section class="section reveal" id="executive-summary">
+  <div class="section-eyebrow">Section 01</div>
+  <h2 class="section-title">Executive Summary</h2>
+  <p class="section-intro">NewCo is a boutique search firm specializing in junior talent placement across commercial real estate — including asset management, acquisitions, development, and credit roles. Founded in partnership with September Search, NewCo operates as the junior counterpart to September Search's established senior executive search practice, creating a comprehensive, end-to-end talent solution for real estate clients.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">The firm is designed to fill a clear gap in the market: most boutique search firms focus exclusively on senior talent, leaving junior hiring — analysts, associates, and mid-level professionals — underserved. NewCo addresses this directly, with a dedicated approach that prioritizes candidate relationships, client engagement, and long-term talent pipeline development.</p>
+
+  <div class="h2">Key Highlights</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Category</th><th>Summary</th></tr></thead>
+      <tbody>
+        <tr><td>Structure</td><td>JV LLC operating under September Search umbrella; founder maintains full control</td></tr>
+        <tr><td>Focus</td><td>Junior CRE professionals — analysts, associates, senior associates, junior VPs</td></tr>
+        <tr><td>Geography</td><td>New York City primary; US broadly across major markets</td></tr>
+        <tr><td>Model</td><td>Exclusive Contingency or Retained</td></tr>
+        <tr><td>Year 1 Target</td><td>$650,000 revenue across 10–12 placements</td></tr>
+        <tr><td>Year 2 Target</td><td>$1,300,000 revenue across 20–25 placements</td></tr>
+        <tr><td>Year 3 Target</td><td>$1,950,000 revenue, 30+ placements, team of 3</td></tr>
+        <tr><td>Partnership</td><td>September Search provides brand, client introductions, and mentorship</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 2: MISSION ── -->
+<section class="section reveal" id="mission">
+  <div class="section-eyebrow">Section 02</div>
+  <h2 class="section-title">Mission & Positioning</h2>
+  <div class="callout">NewCo was founded in partnership with September Search, in an effort to provide our clients and candidates with greater optionality and visibility into the talent market. September Search is a new firm, but experienced team of search professionals dedicated to senior-level executive search, on a retained basis. NewCo will serve as the junior partner to September Search, working with young professionals across the commercial real estate landscape. For our candidates, this means that as you gain experience, you already have a team who understands your long-term goals standing by. For our clients, we will have dedicated teams getting to know talent at every level, so no matter the position or seniority, you have a centralized resource.</div>
+
+  <div class="h2">Core Values</div>
+  <ul class="styled-list">
+    <li><strong>Relationships first</strong> — for both clients and candidates, we are focused on being a long-term resource. Whether or not we ever work together on an opportunity, we value being connected to the best individuals in our industry.</li>
+    <li><strong>Transparency</strong> — honest communication with clients and candidates at every stage.</li>
+    <li><strong>Specialization</strong> — deep expertise in CRE junior talent.</li>
+    <li><strong>Long-term thinking</strong> — we measure success in careers built, relationship durations and client growth — not placements made.</li>
+    <li><strong>Partnership</strong> — we operate as an extension of our clients' teams.</li>
+  </ul>
+
+  <div class="h2">Positioning Statement</div>
+  <p class="section-intro">NewCo occupies a deliberate gap in the commercial real estate search market: the junior level. While established firms — including September Search — compete for senior mandates, the analyst and associate tier remains fragmented, relationship-thin, and underserved. NewCo is purpose-built for this segment.</p>
+
+  <div class="h2">Focus Areas</div>
+  <div class="card-grid g2" style="margin-top:1rem;">
+    <div class="card">
+      <div class="card-title">Asset Management</div>
+      <p style="font-size:13px;color:#4A5A52;margin-bottom:6px;"><strong>Roles:</strong> Asset Management (Sr.) Analyst, Asset Management (Sr.) Associate, Portfolio Management (Sr.) Analyst, Portfolio Management (Sr.) Associate</p>
+      <p style="font-size:12px;color:var(--stone);"><strong>Firms:</strong> REPE, REITs, Real Estate Developers, Real Estate Credit Funds</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Acquisitions</div>
+      <p style="font-size:13px;color:#4A5A52;margin-bottom:6px;"><strong>Roles:</strong> Acquisitions (Sr.) Analyst, Acquisitions (Sr.) Associate, Investments (Sr.) Analyst, Investments (Sr.) Associate, Underwriting Analyst–Sr. Associate</p>
+      <p style="font-size:12px;color:var(--stone);"><strong>Firms:</strong> REPE, REITs, Real Estate Developers</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Development</div>
+      <p style="font-size:13px;color:#4A5A52;margin-bottom:6px;"><strong>Roles:</strong> Development (Sr.) Analyst, Development (Sr.) Associate</p>
+      <p style="font-size:12px;color:var(--stone);"><strong>Firms:</strong> REPE, REITs, Real Estate Developers</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Credit</div>
+      <p style="font-size:13px;color:#4A5A52;margin-bottom:6px;"><strong>Roles:</strong> Credit (Sr.) Analyst, Credit (Sr.) Associate, Originations (Sr.) Analyst, Originations (Sr.) Associate</p>
+      <p style="font-size:12px;color:var(--stone);"><strong>Firms:</strong> REPE, REITs, Real Estate Developers, Real Estate Credit Funds</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 3: MARKET ── -->
+<section class="section reveal" id="market">
+  <div class="section-eyebrow">Section 03</div>
+  <h2 class="section-title">Market Opportunity</h2>
+
+  <div class="h2">The Junior CRE Talent Gap</div>
+  <p class="section-intro">Commercial real estate remains one of the most relationship-driven industries in the world — yet the infrastructure for finding and placing junior talent has not kept pace with the industry's growth. Most boutique search firms focus exclusively on VP-level and above, leaving a significant and recurring hiring need unaddressed at the analyst and associate tier.</p>
+
+  <div class="h3" style="margin-top:1.5rem;">Key Demand Drivers</div>
+  <ul class="styled-list">
+    <li>PE real estate firms, debt funds, and developers hire 2–6 junior professionals per year on average.</li>
+    <li>Most do not have dedicated in-house recruiters at the junior level.</li>
+    <li>Campus recruiting is losing ground to experienced hire search as firms seek candidates with 1–3 years of experience.</li>
+    <li>The 2021–2023 hiring boom created a generation of junior CRE professionals now ready to make their first lateral move.</li>
+    <li>Real estate credit has expanded significantly, creating sustained demand for credit-trained junior talent.</li>
+  </ul>
+
+  <div class="h2">Competitive Landscape</div>
+  <p class="section-intro">The majority of large, well-resourced organizations with sizable research and search teams operating at scale are utilized for junior search. While sometimes effective in the short term, this model often produces weak candidate relationships and long-term client attrition — the inevitable result of transaction-oriented hiring practices that prioritize volume over quality.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">Smaller, boutique search firms have responded by focusing almost exclusively on senior-level mandates, where higher fees at lower volumes allow for the relationship depth and candidate quality their reputations demand. The junior market, by contrast, has been left largely unaddressed.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">Until now, no firm has built a high-touch, specialized search practice dedicated exclusively to junior talent. We believe this is not only a viable model — it is an overdue one.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">Junior professionals frequently make poor first or second career moves, decisions that can have lasting consequences on their long-term trajectory. Clients, in turn, routinely overspend on junior hiring as a direct result of high turnover driven by search partners who move quickly but not thoughtfully. NewCo is designed to address both problems. We aim to serve as trusted advisors — to junior talent navigating early career decisions, and to the teams who need a durable, long-term solution to junior hiring and the turnover costs that come with getting it wrong.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">Our model does not require premium fees. By maintaining robust, continuously cultivated candidate pipelines, we are able to match prevailing market fee levels while delivering a meaningfully more specialized and considered search process.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">For existing clients of September Search, this partnership introduces something new: a dedicated junior search resource that operates entirely outside the competition for your senior mandates. NewCo focuses exclusively on building out your junior team, while our partners at September Search remain focused on your highest-impact, senior-level opportunities — without conflict of interest.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">By embedding ourselves exclusively in the junior talent landscape, we will earn the trust and long-term loyalty of candidates at the earliest stages of their careers. That depth of relationship makes us better partners for our clients, and a lasting, holistic resource for candidates as they grow.</p>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 4: SERVICE MODEL ── -->
+<section class="section reveal" id="service-model">
+  <div class="section-eyebrow">Section 04</div>
+  <h2 class="section-title">Service Model & Fee Structure</h2>
+
+  <div class="card-grid g2" style="margin-top:1rem;">
+    <div class="card">
+      <div class="card-title">Exclusive Contingency Search</div>
+      <p style="font-size:13px;color:#4A5A52;line-height:1.7;">NewCo's default model with a 3-month exclusive timeline. Beneficial for onboarding new clients with less upfront cost as we build new relationships. A fee is collected only upon successful placement — no upfront cost to the client. After 3 months without placement, searches automatically shift to a retained structure.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Retained Search</div>
+      <p style="font-size:13px;color:#4A5A52;line-height:1.7;">Used for searches outside our core focus areas, or when a client specifically requires the retained model. A retainer — typically one-third of the total fee — is paid upfront, with the balance due on placement.</p>
+    </div>
+  </div>
+
+  <div class="h2">Fee Structure</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Type</th><th>Fee Basis</th><th>Fee Range</th><th>Payment</th></tr></thead>
+      <tbody>
+        <tr><td>Exclusive Contingency</td><td>25–30% of all-in compensation</td><td>$37,500–$125,000</td><td>On placement</td></tr>
+        <tr><td>Retained</td><td>25–30% of all-in compensation</td><td>$37,500–$125,000</td><td>⅓ / ⅓ / ⅓</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Guarantee Policy</div>
+  <ul class="styled-list">
+    <li><strong>Standard guarantee:</strong> 90-day replacement guarantee on all placements</li>
+    <li>If a placed candidate departs within 90 days, NewCo conducts a replacement search at no additional fee</li>
+    <li>Guarantee does not apply in cases of layoff, role elimination, or client-initiated termination</li>
+    <li><strong>Extended 6-month guarantee</strong> available as a premium offering for retained clients</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 5: REVENUE ── -->
+<section class="section reveal" id="revenue">
+  <div class="section-eyebrow">Section 05</div>
+  <h2 class="section-title">Revenue Targets & Placement Goals</h2>
+
+  <div class="metric-row">
+    <div class="metric-card sage">
+      <div class="metric-label">Year 1 · 2026–2027</div>
+      <div class="metric-val">$650K</div>
+      <div class="metric-sub">10–12 placements · Ramp phase</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Year 2 · 2027–2028</div>
+      <div class="metric-val">$1.3M</div>
+      <div class="metric-sub">20–25 placements · Growth phase</div>
+    </div>
+    <div class="metric-card gold">
+      <div class="metric-label">Year 3 · 2028–2029</div>
+      <div class="metric-val">$1.95M</div>
+      <div class="metric-sub">30+ placements · Scale phase</div>
+    </div>
+  </div>
+
+  <div class="h2">Year 1 Quarterly Breakdown</div>
+  <div class="quarter-grid">
+    <div class="quarter-card">
+      <div class="qtr-label">Q3 2026 · Foundation</div>
+      <div class="qtr-title">Setup & Launch</div>
+      <div class="qtr-item">Name chosen &amp; LLC filed</div>
+      <div class="qtr-item">Articles of Organization filed with NY Dept. of State</div>
+      <div class="qtr-item">Registered agent designated</div>
+      <div class="qtr-item">Publication requirement completed</div>
+      <div class="qtr-item">Operating agreement executed</div>
+      <div class="qtr-item">Financial accounts set up</div>
+      <div class="qtr-item">Business plan agreed on</div>
+      <div class="qtr-item">Website &amp; branding live</div>
+    </div>
+    <div class="quarter-card">
+      <div class="qtr-label">Q4 2026</div>
+      <div class="qtr-title">First Searches</div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Placements</span><span class="qtr-stat-val">0–2</span></div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Target Revenue</span><span class="qtr-stat-val">$0–$130K</span></div>
+      <div class="qtr-item">Market mapping &amp; relationship onboarding</div>
+      <div class="qtr-item">Template construction &amp; search process outline</div>
+      <div class="qtr-item">Training materials developed</div>
+    </div>
+    <div class="quarter-card">
+      <div class="qtr-label">Q1 2027</div>
+      <div class="qtr-title">Pipeline Building</div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Placements</span><span class="qtr-stat-val">2–3</span></div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Target Revenue</span><span class="qtr-stat-val">$130K–$195K</span></div>
+      <div class="qtr-item">First placements; activate September Search intros</div>
+      <div class="qtr-item">~5 firm introductions activated</div>
+      <div class="qtr-item">Pipeline building underway</div>
+    </div>
+    <div class="quarter-card active">
+      <div class="qtr-label">Q2–Q3 2027 · Scale</div>
+      <div class="qtr-title">Growth & Ramp</div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Placements</span><span class="qtr-stat-val">8–17</span></div>
+      <div class="qtr-stat"><span class="qtr-stat-label">Target Revenue</span><span class="qtr-stat-val">$195K–$650K</span></div>
+      <div class="qtr-item">Referral engine active; founder onboards former clients</div>
+      <div class="qtr-item">Scale and seed Year 2 pipeline</div>
+      <div class="qtr-item">Year 2 planning; evaluate first hire</div>
+    </div>
+  </div>
+
+  <div class="h2">Placement Goals by Practice Area</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Practice Area</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+      <tbody>
+        <tr><td>Asset Management</td><td>2–5 placements</td><td>4–5 placements</td><td>5–10 placements</td></tr>
+        <tr><td>Acquisitions</td><td>2–5 placements</td><td>4–5 placements</td><td>5–10 placements</td></tr>
+        <tr><td>Credit</td><td>3–7 placements</td><td>5–9 placements</td><td>6–12 placements</td></tr>
+        <tr><td>Development</td><td>2–4 placements</td><td>4–6 placements</td><td>4–8 placements</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 6: CLIENTS ── -->
+<section class="section reveal" id="clients">
+  <div class="section-eyebrow">Section 06</div>
+  <h2 class="section-title">Target Client Strategy</h2>
+
+  <div class="h2">Ideal Client Profile</div>
+  <ul class="styled-list">
+    <li>New York City headquartered, major NYC office presence, or another major US market</li>
+    <li>Hiring 2–5 junior professionals per year — strong repeat client potential</li>
+    <li>No dedicated in-house junior recruiter or understaffed HR function</li>
+    <li>Senior leadership open to boutique, relationship-based search</li>
+    <li>Existing September Search relationship is a significant advantage</li>
+  </ul>
+
+  <div class="h2">Primary Target Segments</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Segment</th><th>Example Firms</th><th>Roles</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>PE Real Estate</td><td>Blackstone RE, Angelo Gordon, Cerberus, Clarion</td><td>Acquisitions analyst, AM associate</td><td>High</td></tr>
+        <tr><td>RE Credit / Debt</td><td>Mesa West, Starwood Credit, KKR RE Finance</td><td>Credit analyst, originations</td><td>High</td></tr>
+        <tr><td>Developers</td><td>Related, RXR, Extell, Tishman Speyer</td><td>Development associate, finance</td><td>High</td></tr>
+        <tr><td>REITs</td><td>SL Green, Vornado, AvalonBay</td><td>AM, IR, acquisitions</td><td>Medium</td></tr>
+        <tr><td>Family Offices</td><td>Single/multi-family with RE focus</td><td>Analyst, associate</td><td>Opportunistic</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Client Acquisition Strategy</div>
+  <ul class="styled-list">
+    <li>Activate September Search introductions — 3–5 warm introductions in Month 1, 5–10 by Month 6</li>
+    <li>Direct outreach campaign — 20 target firms identified and contacted by Month 3</li>
+    <li>Conference presence — PERE, CREFC, and NYC RE Roundtable events</li>
+    <li>LinkedIn content — 2–3 posts per week on junior CRE talent trends</li>
+    <li>University partnerships — Columbia, NYU, Fordham RE programs for client and candidate pipeline</li>
+    <li>Candidate referrals — placed professionals refer firms and peers</li>
+  </ul>
+
+  <div class="h2">Client Retention Strategy</div>
+  <ul class="styled-list">
+    <li>30/60/90-day post-placement check-ins with every client</li>
+    <li>Quarterly market update emails — salary benchmarks, talent availability, trends</li>
+    <li>Annual relationship review meeting with all active clients</li>
+    <li>Target preferred vendor status at 2–3 anchor clients by end of Year 2</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 7: CANDIDATES ── -->
+<section class="section reveal" id="candidates">
+  <div class="section-eyebrow">Section 07</div>
+  <h2 class="section-title">Candidate Strategy</h2>
+
+  <div class="h2">Target Candidate Profile</div>
+  <ul class="styled-list">
+    <li>1–6 years of experience in commercial real estate or adjacent finance</li>
+    <li>Currently employed — passive candidates are the highest-quality pool</li>
+    <li>Analyst or associate level across AM, acquisitions, development, or credit</li>
+    <li>Located in or open to relocating to New York City or other major markets (Chicago, Boston, DC, Charlotte, Atlanta, Miami, Dallas, Los Angeles, San Francisco)</li>
+  </ul>
+
+  <div class="h2">Candidate Sourcing Channels</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Source</th><th>Approach</th><th>Expected Yield</th></tr></thead>
+      <tbody>
+        <tr><td>LinkedIn Recruiter</td><td>Active outreach to employed candidates</td><td>Primary — 40–60% of pipeline</td></tr>
+        <tr><td>ATS / Internal Database</td><td>Previous applicants and warm candidates</td><td>Growing over time</td></tr>
+        <tr><td>University networks</td><td>Columbia, NYU, Fordham RE alumni</td><td>Junior pipeline, Year 1+</td></tr>
+        <tr><td>Candidate referrals</td><td>Placed candidates refer peers</td><td>High quality, Year 2+</td></tr>
+        <tr><td>Industry events</td><td>CREFC and other CRE conferences</td><td>Brand building + sourcing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Candidate Relationship Philosophy</div>
+  <div class="callout">NewCo's long-term advantage is a candidate database that grows with professionals throughout their careers. A junior analyst placed today becomes a mid-level associate in three years and a VP candidate in seven. By building relationships early, NewCo creates a proprietary talent network that becomes more valuable over time — and naturally feeds into September Search's senior pipeline.</div>
+  <ul class="styled-list">
+    <li>Every candidate interaction logged and tracked in ATS regardless of immediate placement potential</li>
+    <li>Quarterly touchpoints with top-tier candidates not yet in active search</li>
+    <li>Candidate newsletter — market updates, career advice, relevant content</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 8: SEARCH PROCESS ── -->
+<section class="section reveal" id="search-process">
+  <div class="section-eyebrow">Section 08</div>
+  <h2 class="section-title">Search Process</h2>
+  <p class="section-intro">A consistent, repeatable process is NewCo's core product. Every search follows the same seven-step methodology regardless of role type or client.</p>
+
+  <div style="margin-top:2rem;" class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <div class="step-title">Client Intake & Role Specification</div>
+        <div class="step-desc">Deep intake call. Draft written role spec for client sign-off. Agree on compensation range, timeline, and interview process before any sourcing begins.</div>
+        <span class="step-time">Day 1–3</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <div class="step-title">Market Mapping</div>
+        <div class="step-desc">Identify 40–60 target candidates via LinkedIn Recruiter, ATS, and network. Prioritize employed candidates not actively looking.</div>
+        <span class="step-time">Day 3–7</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <div class="step-title">Outreach & Screening</div>
+        <div class="step-desc">Personalized outreach to all targets. Expect 15–20% response rate. 15–20 minute phone screen for all interested candidates before any client presentation.</div>
+        <span class="step-time">Day 5–14</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <div class="step-title">Candidate Presentation</div>
+        <div class="step-desc">Present 4–6 candidates with a written profile for each — background summary, motivation, comp expectations, and NewCo's assessment.</div>
+        <span class="step-time">Day 14–30</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <div class="step-title">Interview Coordination</div>
+        <div class="step-desc">Own the scheduling, candidate prep, and debrief calls. Contact both sides within 24 hours of every interview. Push for timely decisions.</div>
+        <span class="step-time">Day 14–45</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">06</div>
+      <div class="step-body">
+        <div class="step-title">Offer Management</div>
+        <div class="step-desc">Secure verbal offer before written. Know the candidate's walk-away number, counter-offer likelihood, and competing situations. Close proactively.</div>
+        <span class="step-time">Day 45–60</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">07</div>
+      <div class="step-body">
+        <div class="step-title">Post-Placement Follow-Up</div>
+        <div class="step-desc">Check in with client and candidate at 30, 60, and 90 days post-start. Document outcomes. Use to generate referrals and secure the next search.</div>
+        <span class="step-time">30 / 60 / 90 days post-start</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 9: HIRING ── -->
+<section class="section reveal" id="hiring">
+  <div class="section-eyebrow">Section 09</div>
+  <h2 class="section-title">Hiring & Team Building</h2>
+
+  <div class="h2">Hiring Philosophy</div>
+  <p class="section-intro">NewCo will remain lean and founder-led through Year 1. Adding headcount before the business model is fully validated is a common early-stage mistake. The goal in Year 1 is to prove the process, build the client base, and generate enough revenue to justify and fund the first hire. Every hire should be a force multiplier — freeing the founder's time for higher-value client and candidate work.</p>
+  <p class="section-intro" style="margin-top:0.75rem;">The hiring strategy will remain adaptable to account for increased mandates or slower periods. Each team member will be expected to contribute across multiple dimensions — client interaction, candidate sourcing, and administrative support — with the mix evolving as the team grows.</p>
+
+  <div class="h2">Hiring Timeline</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>When</th><th>Role</th><th>Compensation</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>Year 1</td><td>Founder only</td><td>Salary + Revenue Share</td><td>Build and validate; learn every function before delegating</td></tr>
+        <tr><td>Year 2 Q1–Q2</td><td>Junior Recruiter #1</td><td>$60K–$75K + bonus ($25K–$50K target)</td><td>Increases execution capacity; frees 20–30% of founder time for client-facing work</td></tr>
+        <tr><td>Year 2 Q3–Q4</td><td>Junior Recruiter #2</td><td>$60K–$75K + bonus ($25K–$50K target)</td><td>Increases capacity; enables the team to diversify role coverage</td></tr>
+        <tr><td>Year 3</td><td>Junior Recruiter #3 (optional)</td><td>$60K–$75K + bonus ($25K–$50K target)</td><td>Enables increased capacity and practice area expansion</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Ideal Junior Recruiter Profile</div>
+  <ul class="styled-list">
+    <li>1–3 years of experience in search, talent acquisition, or commercial real estate; or Master's degree</li>
+    <li>Competitive, relationship-driven, and comfortable with outbound communication</li>
+    <li>Strong written and verbal communication</li>
+    <li>Organized and process-oriented — able to manage 6–8 active searches simultaneously</li>
+    <li>Coachable and hungry to build a career in search</li>
+  </ul>
+
+  <div class="h2">Compensation Structure</div>
+  <ul class="styled-list">
+    <li><strong>Base salary:</strong> $60,000–$75,000 depending on experience</li>
+    <li><strong>Year 1 Bonus:</strong> $25,000–$50,000 depending on individual and firm performance</li>
+    <li><strong>Commission (Year 2+):</strong> 20% of fees generated above a quarterly threshold</li>
+    <li><strong>Annual bonus:</strong> performance-based, tied to placements, client retention, and other criteria</li>
+    <li><strong>Benefits:</strong> health insurance, 401(k) eligibility, and professional development</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 10: OPERATIONS ── -->
+<section class="section reveal" id="operations">
+  <div class="section-eyebrow">Section 10</div>
+  <h2 class="section-title">Operations & Infrastructure</h2>
+
+  <div class="h2">Legal & Compliance</div>
+  <ul class="styled-list">
+    <li>File LLC in New York State — $200 filing fee plus publication requirement (~$1,200–$2,000 in NYC)</li>
+    <li>Draft and execute operating agreement with NY business attorney before first search</li>
+    <li>Sign partnership agreement with September Search — define referral fees, brand use, client ownership, exit terms</li>
+    <li>Attorney-reviewed fee agreement templates — contingency and retained versions</li>
+    <li>Separate business banking account opened before first client engagement</li>
+    <li>Bookkeeper engaged by Month 3 — track all income and expenses from day one</li>
+    <li>Business insurance — general liability and professional indemnity (E&amp;O) coverage</li>
+  </ul>
+
+  <div class="h2">Technology Stack</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Category</th><th>Tool</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>ATS / CRM</td><td>Ezekia</td><td>Candidate and client tracking; pipeline management</td></tr>
+        <tr><td>Sourcing</td><td>LinkedIn Recruiter</td><td>Primary candidate identification and outreach</td></tr>
+        <tr><td>Scheduling</td><td>Calendly</td><td>Eliminate scheduling friction for clients and candidates</td></tr>
+        <tr><td>E-Signatures</td><td>DocuSign</td><td>Fee agreements, offer letters, partnership docs</td></tr>
+        <tr><td>Communication</td><td>Outlook</td><td>Email, calendar, docs, shared drive</td></tr>
+        <tr><td>Accounting</td><td>QuickBooks Online</td><td>Invoicing, expense tracking, P&amp;L reporting</td></tr>
+        <tr><td>Website</td><td>Squarespace or Webflow</td><td>Brand presence; contact and about page</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Documents & Templates to Build in Month 1</div>
+  <ul class="styled-list">
+    <li>Contingency fee agreement — attorney-reviewed, NewCo-branded</li>
+    <li>Retained search agreement — with payment schedule and guarantee terms</li>
+    <li>Candidate profile template — written summary format for every shortlist</li>
+    <li>Offer checklist — what to confirm before candidate accepts</li>
+    <li>30/60/90-day check-in email templates — client and candidate versions</li>
+    <li>LinkedIn outreach scripts — 3–4 variations for different candidate profiles</li>
+    <li>New client onboarding email — what to expect, timeline, and process overview</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 11: FINANCIAL ── -->
+<section class="section reveal" id="financial">
+  <div class="section-eyebrow">Section 11</div>
+  <h2 class="section-title">Financial Plan & Operating Budget</h2>
+
+  <div class="h2">Startup Costs (One-Time)</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Item</th><th>Estimated Cost</th></tr></thead>
+      <tbody>
+        <tr><td>NY LLC filing fee</td><td>$200</td></tr>
+        <tr><td>Publication requirement (NYC)</td><td>$1,200–$2,000</td></tr>
+        <tr><td>Attorney fees (LLC + partnership agreement)</td><td>$4,000–$6,000</td></tr>
+        <tr><td>Branding (name, logo, email domain)</td><td>$1,000–$3,500</td></tr>
+        <tr><td>Website setup</td><td>$500–$1,000</td></tr>
+        <tr><td>Business banking and insurance setup</td><td>$500–$1,000</td></tr>
+        <tr><td><strong>Total estimated startup costs</strong></td><td><strong>$7,400–$13,700</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Monthly Operating Budget</div>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Expense</th><th>Year 1 / Month</th><th>Year 2 / Month</th></tr></thead>
+      <tbody>
+        <tr><td>Founder salary draw</td><td>$8,334</td><td>$8,334</td></tr>
+        <tr><td>LinkedIn Recruiter license</td><td>$825</td><td>$825–$1,650</td></tr>
+        <tr><td>ATS / CRM</td><td>$150–$300</td><td>$300–$500</td></tr>
+        <tr><td>Legal / accounting (monthly avg)</td><td>$300–$500</td><td>$500–$750</td></tr>
+        <tr><td>Marketing &amp; outreach</td><td>$200–$400</td><td>$400–$600</td></tr>
+        <tr><td>Pitchbook / research tools</td><td>$400–$600</td><td>$400–$600</td></tr>
+        <tr><td>Misc (phone, travel, supplies)</td><td>$200–$400</td><td>$300–$500</td></tr>
+        <tr><td>Team (junior recruiters)</td><td>—</td><td>$5,000–$6,250</td></tr>
+        <tr><td><strong>Total monthly burn (est.)</strong></td><td><strong>$10,409–$11,359</strong></td><td><strong>$16,059–$19,184</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="h2">Break-Even Analysis</div>
+  <p class="section-intro">At a monthly burn of approximately $10,884 and an average fee of $65,000 per placement, NewCo needs roughly 1 placement per quarter to cover operating costs. With 10–12 placements targeted in Year 1, the business has a meaningful cushion above break-even — assuming placements are distributed across the year.</p>
+  <div class="callout gold" style="margin-top:1rem;">Note: The critical milestone is completing a search in Q4 2026 or early Q1 2027, which provides immediate operating cash and extends the runway materially. September Search client introductions are the primary de-risking mechanism for this timing.</div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 12: RISK ── -->
+<section class="section reveal" id="risk">
+  <div class="section-eyebrow">Section 12</div>
+  <h2 class="section-title">Risk Analysis</h2>
+  <div class="tbl-wrap">
+    <table class="data">
+      <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Slow ramp in Q4–Q1</td><td><span class="risk-tag risk-med">Medium</span></td><td><span class="risk-tag risk-high">High</span></td><td>Activate September Search intros immediately. Accept contingency deals to build momentum.</td></tr>
+        <tr><td>Client concentration risk</td><td><span class="risk-tag risk-med">Medium</span></td><td><span class="risk-tag risk-high">High</span></td><td>Never allow one client to exceed 40% of revenue. Diversify from the start. Prioritize breadth in Year 1 over depth.</td></tr>
+        <tr><td>Candidate counter-offers / fall-offs</td><td><span class="risk-tag risk-med">Medium</span></td><td><span class="risk-tag risk-med">Medium</span></td><td>Rigorous offer management process. Know the candidate's full situation before presenting. Coach through counter-offer scenarios in advance.</td></tr>
+        <tr><td>CRE market slowdown / hiring freeze</td><td><span class="risk-tag risk-med">Medium</span></td><td><span class="risk-tag risk-high">High</span></td><td>Maintain diversity across PE, credit, and developers. RE credit tends to stay active even when acquisitions slow significantly.</td></tr>
+        <tr><td>Partnership friction with September Search</td><td><span class="risk-tag risk-low">Low</span></td><td><span class="risk-tag risk-med">Medium</span></td><td>Formal written agreement reviewed by counsel. Clear terms on referral fees, client ownership, brand, and exit from day one.</td></tr>
+        <tr><td>Key person dependency</td><td><span class="risk-tag risk-low">Low</span></td><td><span class="risk-tag risk-high">High</span></td><td>Document all processes. Build a team by Year 2. Ensure client relationships are tied to NewCo — not exclusively to the founder.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 13: PARTNERSHIP ── -->
+<section class="section reveal" id="partnership">
+  <div class="section-eyebrow">Section 13</div>
+  <h2 class="section-title">Partnership Terms & Governance</h2>
+  <div class="callout" style="margin-top:1rem;">The below represents a proposed term sheet for a new venture. This term sheet is non-binding and subject to definitive documentation.</div>
+
+  <div class="h2">Strategy</div>
+  <ul class="styled-list">
+    <li>NewCo will focus on originating and executing recruitment for real estate clients, with a primary focus on junior-level roles (up to senior associate)</li>
+    <li>September Search will make introductions to NewCo for roles that fall outside the scope of September Search's work, as appropriate, and maintains right of first refusal for searches they originate</li>
+    <li>For VP-level and above roles originated by NewCo, NewCo will consult the partnership regarding the appropriate firm to execute the search</li>
+  </ul>
+
+  <div class="h2">Corporate Structure & Economics</div>
+  <div class="card-grid g2" style="margin-top:1rem;">
+    <div class="card">
+      <div class="card-title">Ownership</div>
+      <ul class="styled-list">
+        <li>66.67% — September Search Partners LLC</li>
+        <li>33.33% — Founder (Mollie Johnson)</li>
+        <li>Entity structured as an LLC</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Founder Compensation</div>
+      <ul class="styled-list">
+        <li>Salary: $100,000 per annum (pre-profit cost, not a draw)</li>
+        <li>Full benefits for individual or family</li>
+        <li>401(k) per September Search's current scheme</li>
+        <li>Profit share: 33.33% after return of initial capital to SSP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="h2">Infrastructure & Investment</div>
+  <ul class="styled-list">
+    <li>NewCo benefits from SSP infrastructure including accounting, payroll, bookkeeping, corporate tax preparation, legal counsel, office space, marketing, and LinkedIn Recruiter Pro</li>
+    <li>All infrastructure costs flow through NewCo's P&amp;L at SSP group pricing</li>
+    <li>SSP will fund NewCo for startup costs and working capital, initially up to $125,000</li>
+    <li>Founder will dedicate 100% of working time to NewCo unless otherwise agreed</li>
+  </ul>
+
+  <div class="h2">Profit Waterfall</div>
+  <ul class="styled-list">
+    <li>Return of initial capital investment to SSP</li>
+    <li>Pro rata distribution: 33.33% to Founder, 66.67% to SSP</li>
+    <li>For the avoidance of doubt: the $100,000 salary is a pre-profit cost to the company. Profit share is in addition to salary.</li>
+  </ul>
+
+  <div class="h2">Revenue Allocation</div>
+  <ul class="styled-list">
+    <li>All revenues to NewCo shall flow through NewCo's P&amp;L</li>
+    <li>NewCo will also earn revenue from SSP when a NewCo employee executes search work for SSP per written request</li>
+    <li>NewCo is entitled to 10% of the total fee for the first engagement with any client introduced to SSP that becomes fee-paying within 6 months of introduction</li>
+    <li>SSP is not entitled to direct referral fees from NewCo for searches originated by SSP and referred to NewCo — compensation is solely through profit share, unless both parties agree otherwise</li>
+  </ul>
+
+  <div class="h2">Decision Rights</div>
+  <ul class="styled-list">
+    <li>Business plan generated by Founder; reviewed and approved by majority vote of partners (Mollie Johnson, Emily Von Kohorn, Jennifer Novack)</li>
+    <li>Major decisions — hiring and firing, expenses above a defined threshold, distributions, and sale of the company — require majority vote of all partners</li>
+  </ul>
+</section>
+
+<hr class="divider"/>
+
+<!-- ── SECTION 14: EXIT ── -->
+<section class="section reveal" id="exit">
+  <div class="section-eyebrow">Section 14</div>
+  <h2 class="section-title">Exit Strategy & Long-Term Vision</h2>
+  <p class="section-intro">By the end of Year 3, NewCo will be at a natural inflection point — meaningful revenue, an established client base, a growing team, and a recognized brand. At that point, the partners will evaluate the path forward.</p>
+
+  <div class="path-grid" style="margin-top:1.5rem;">
+    <div class="path-card">
+      <div class="path-num">01</div>
+      <div class="path-title">Remain Under the September Search Umbrella</div>
+      <div class="path-desc">Continue as a defined subsidiary or partner firm. Renegotiate terms to reflect NewCo's scale and value. Appropriate if the relationship is strong and brand association continues to generate value.</div>
+    </div>
+    <div class="path-card">
+      <div class="path-num">02</div>
+      <div class="path-title">Go Fully Independent</div>
+      <div class="path-desc">Launch NewCo as a fully standalone firm. Exit the September Search partnership on agreed terms. Own 100% of revenue, brand, and client relationships. Appropriate if NewCo's pipeline is self-sustaining.</div>
+    </div>
+    <div class="path-card">
+      <div class="path-num">03</div>
+      <div class="path-title">Merge or Affiliate More Formally</div>
+      <div class="path-desc">Explore deeper integration with September Search — a merger, equity exchange, or formal joint venture. Appropriate if a unified brand creates more value than two separate identities.</div>
+    </div>
+  </div>
+
+  <div class="h2">Long-Term Vision (Years 4–7)</div>
+  <ul class="styled-list">
+    <li>Expand to a team of 7–12 search professionals covering all junior CRE verticals</li>
+    <li>National practice — NYC primary market with active presence in Boston, Miami, and Los Angeles</li>
+    <li>$3.5–6M annual revenue as a mature boutique with a proprietary candidate network</li>
+    <li>Considered the premier destination for junior CRE professionals making their first lateral move</li>
+  </ul>
+
+  <div class="callout" style="margin-top:1.5rem;">In three years, NewCo is a recognized name in junior commercial real estate search. Clients call before posting roles. Candidates proactively reach out. The team runs searches without the founder in every step. The brand stands on its own. And the partnership with September Search has made both firms meaningfully stronger.</div>
+</section>
+
+</div><!-- /content -->
+
+<footer class="doc-footer">
+  NewCo &nbsp;·&nbsp; Prepared in partnership with September Search &nbsp;·&nbsp; Jennifer Novack &amp; Emily Von Kohorn &nbsp;·&nbsp; Confidential
+</footer>
+
+</main>
+
+<script>
+// Active nav on scroll
+const sections = document.querySelectorAll('.section[id]');
+const navItems = document.querySelectorAll('.nav-item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => n.classList.remove('active'));
+      const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+
+reveals.forEach(r => revealObserver.observe(r));
+</script>
+</body>
+</html>
